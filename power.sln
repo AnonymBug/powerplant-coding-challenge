@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "service", "service\service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "service.Tests", "service.Tests\service.Tests.csproj", "{29F83F61-35AA-4600-964E-27F225415865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "power2", "power2\power2.csproj", "{9414872E-1419-4343-A650-8721836D9104}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{29F83F61-35AA-4600-964E-27F225415865}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F83F61-35AA-4600-964E-27F225415865}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F83F61-35AA-4600-964E-27F225415865}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9414872E-1419-4343-A650-8721836D9104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9414872E-1419-4343-A650-8721836D9104}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9414872E-1419-4343-A650-8721836D9104}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9414872E-1419-4343-A650-8721836D9104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
