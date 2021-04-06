@@ -40,7 +40,7 @@ namespace power
             double efficiency = Double.Parse(plant["efficiency"]);
             string type = plant["type"];
             var price = getFuelCost(costs, type);
-            cost = price * efficiency;
+            cost = price / efficiency;
         }
     }
 }
