@@ -72,7 +72,7 @@ namespace power
         {
             var inn = Parse(innjson);
             var innList = inn.Item2;
-            var ordered = innList.OrderBy(p => p.cost).OrderByDescending(p => p.pmin).OrderByDescending(p => p.pmax);
+            var ordered = innList.OrderBy(p => p.cost).ThenByDescending(p => p.pmin).ThenByDescending(p => p.pmax);
             var target = inn.Item1;
             double accumulated = 0.0;
             var res = new List<(PlantCost, int)>();
