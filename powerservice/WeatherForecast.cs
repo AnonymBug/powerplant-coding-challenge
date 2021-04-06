@@ -1,6 +1,6 @@
 using System;
 
-namespace powerservice
+namespace powerService
 {
     public class WeatherForecast
     {

@@ -18,7 +18,7 @@ namespace powerAPI.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
-
+            power.Calculator.Calculate(value);
         }
     }
 }

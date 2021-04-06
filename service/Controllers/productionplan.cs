@@ -14,7 +14,7 @@ namespace service.Controllers
         // POST: api/productionplan
         public void Post([FromBody]string value)
         {
-            power.
+            
         }
 
   
