@@ -248,9 +248,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\power\power.csproj">
-      <Project>{59a910f4-564b-4101-bae9-0bb9b7e159af}</Project>
-      <Name>power</Name>
+    <ProjectReference Include="..\powerc\powerc.csproj">
+      <Project>{112d713f-8f54-4d96-b3cb-0403a0d05ec9}</Project>
+      <Name>powerc</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
