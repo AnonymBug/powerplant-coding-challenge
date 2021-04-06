@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTestNU3", "PostTestNU3\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "powerc", "powerc\powerc.csproj", "{112D713F-8F54-4D96-B3CB-0403A0D05EC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "powerAPI", "powerAPI\powerAPI.csproj", "{F9C8F513-B302-4356-ACF2-2F0BD96DBDAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "powerservice", "powerservice\powerservice.csproj", "{C94004CD-BEF3-42E0-A38D-023187F89336}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{112D713F-8F54-4D96-B3CB-0403A0D05EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{112D713F-8F54-4D96-B3CB-0403A0D05EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{112D713F-8F54-4D96-B3CB-0403A0D05EC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9C8F513-B302-4356-ACF2-2F0BD96DBDAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9C8F513-B302-4356-ACF2-2F0BD96DBDAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9C8F513-B302-4356-ACF2-2F0BD96DBDAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9C8F513-B302-4356-ACF2-2F0BD96DBDAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94004CD-BEF3-42E0-A38D-023187F89336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94004CD-BEF3-42E0-A38D-023187F89336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94004CD-BEF3-42E0-A38D-023187F89336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94004CD-BEF3-42E0-A38D-023187F89336}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
