@@ -17,6 +17,8 @@ namespace power
 
         private double efficiency { get; set; }
 
+        public uint allocated { get; set; }
+
         private double
         getFuelCost(Dictionary<string, string> costs, string type)
         {
@@ -38,6 +40,7 @@ namespace power
         public 
         PlantCost(Dictionary<string, string> costs, Dictionary<string, string>  plant)
         {
+            allocated = 0;
             name = plant["name"];
             efficiency = Double.Parse(plant["efficiency"]);
             pmin = uint.Parse(plant["pmin"]);

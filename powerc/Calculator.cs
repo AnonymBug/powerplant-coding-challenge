@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 
 namespace power
 {
@@ -67,31 +68,56 @@ namespace power
         }
 
 
+        static bool subtract( List<(PlantCost, uint)> list, uint tosubtract , int index     )
+        {
+            if (index < 1)
+                return false;
+            var lel = list[index];
+            var pl = lel.Item1;
+            var newval = lel.Item2 - tosubtract;
+            if (newval >= pl.pmin)
+            {
+                lel.Item2 = newval;
+                list[index] = lel;
+                return true;
+            }
+            var rc = subtract(list, tosubtract - (lel.Item2 - pl.pmin), index - 1);
+            if (!rc)
+                return false;
+            lel.Item2 = pl.pmin;
+            list[index] = lel;
+            return true;
+        }
         
         static public List<(PlantCost, uint)> Calculate(string innjson)
         {
             var inn = Parse(innjson);
             var innList = inn.Item2;
-            var ordered = innList.OrderBy(p => p.cost).ThenByDescending(p => p.pmin).ThenByDescending(p => p.pmax);
+            var ordered = innList.OrderBy(p => p.cost).ThenByDescending(p => p.pmin).ThenByDescending(p => p.pmax).ToList();
             var target = inn.Item1;
             uint accumulated = 0;
             var res = new List<(PlantCost, uint)>();
-            foreach( var pl in ordered )
+            for( int i = 0; i < ordered.Count; i++ )
             {
-                uint toadd =target - accumulated;
-                if (toadd <= 0)
+                var pl = ordered[i];
+                uint toadd  = target - accumulated;
+                if (toadd == 0)
                     break;
 
-                if( pl.pmin <= toadd)
+                var power = Math.Min(toadd, pl.pmax);
+                if( power < pl.pmin)
                 {
-                    var power = Math.Min(toadd, pl.pmax);
-                    res.Add((pl, (uint) power));
-                    accumulated = accumulated + power;
-                    
+                    var tosub = pl.pmin - power;
+                    if (subtract(res, tosub, i - 1))
+                    {
+                        accumulated = accumulated - tosub;
+                        power = pl.pmin;
+                    }
+                    else
+                        power = 0;
                 }
-                //                var resItem = 
-
-
+                res.Add((pl, (uint) power));
+                accumulated = accumulated + power;
             }
             return res; // from r in res select new { name = r.Item1.name, p = r.Item2 };
             
