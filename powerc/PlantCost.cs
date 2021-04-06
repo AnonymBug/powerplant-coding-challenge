@@ -56,6 +56,7 @@ namespace power
                 efficiency = percentage / 100.0;
                 //pmin = pmin * efficiency;
                 pmax = (uint) (pmax * efficiency);
+                pmin = pmax;
 
             }
         }
