@@ -44,7 +44,7 @@ namespace power
 
 
 
-        static (double, List<PlantCost>) Parse( string innjson)
+        static (uint, List<PlantCost>) Parse( string innjson)
         {
             var top  = JObject.Parse(innjson);
             var loadT = top.First;
@@ -61,31 +61,31 @@ namespace power
 
             }
             var d = loadT.Last;
-            Double load = Double.Parse(d.ToString());
+            uint load = uint.Parse(d.ToString());
 
             return (load, plants);
         }
 
 
         
-        static public List<(PlantCost, int)> Calculate(string innjson)
+        static public List<(PlantCost, uint)> Calculate(string innjson)
         {
             var inn = Parse(innjson);
             var innList = inn.Item2;
             var ordered = innList.OrderBy(p => p.cost).ThenByDescending(p => p.pmin).ThenByDescending(p => p.pmax);
             var target = inn.Item1;
-            double accumulated = 0.0;
-            var res = new List<(PlantCost, int)>();
+            uint accumulated = 0;
+            var res = new List<(PlantCost, uint)>();
             foreach( var pl in ordered )
             {
-                double toadd = target - accumulated;
+                uint toadd =target - accumulated;
                 if (toadd <= 0)
                     break;
 
-                if( pl.pmin < toadd)
+                if( pl.pmin <= toadd)
                 {
                     var power = Math.Min(toadd, pl.pmax);
-                    res.Add((pl, (int) power));
+                    res.Add((pl, (uint) power));
                     accumulated = accumulated + power;
                     
                 }

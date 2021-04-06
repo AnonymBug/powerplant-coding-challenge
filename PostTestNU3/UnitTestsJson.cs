@@ -1,5 +1,6 @@
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
+using PostTestNU3;
 using power;
 using System.IO;
 
@@ -20,16 +21,18 @@ namespace PowerTests
 
 
         [Test]
-        [TestCase("payload1.json")]
-        [TestCase("payload2.json")]
-        [TestCase("payload3.json")]
+        [TestCase("payload1.json", 480)]
+        [TestCase("payload2.json", 480)]
+        [TestCase("payload3.json", 910)]
 
-        public void testJson(string fn)
+        public void testJson(string fn, int expextedSum)
         {
             
             var path = Path.Join(@"..\..\..\..\",  froot, fn);
             var jsons = File.ReadAllText(path);
-            Calculator.Calculate(jsons);
+            var res = Calculator.Calculate(jsons);
+            
+            Assert.AreEqual(expextedSum, TestCommon.sum(res));
         }
 
 

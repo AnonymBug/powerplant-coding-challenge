@@ -10,8 +10,8 @@ namespace power
 
         public string name { get; private set; }
         //double costMvH;
-        public double pmin { get; private set; }
-        public double pmax { get; private set; }
+        public uint pmin { get; private set; }
+        public uint pmax { get; private set; }
 
         public double cost { get; private set; }
 
@@ -40,8 +40,8 @@ namespace power
         {
             name = plant["name"];
             efficiency = Double.Parse(plant["efficiency"]);
-            pmin = Double.Parse(plant["pmin"]);
-            pmax = Double.Parse(plant["pmax"]);
+            pmin = uint.Parse(plant["pmin"]);
+            pmax = uint.Parse(plant["pmax"]);
             string type = plant["type"];
             var price = getFuelCost(costs, type);
             cost = price / efficiency;
@@ -51,8 +51,8 @@ namespace power
                 var percentageS = percentagePair.Values.ToArray()[0];
                 var percentage = int.Parse(percentageS);
                 efficiency = percentage / 100.0;
-                pmin = pmin * efficiency;
-                pmax = pmax * efficiency;
+                //pmin = pmin * efficiency;
+                pmax = (uint) (pmax * efficiency);
 
             }
         }
